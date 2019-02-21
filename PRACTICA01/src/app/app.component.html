@@ -1,0 +1,75 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}! <!--Importo title desde app.component.ts-->
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<!-- ESTO VENÍA AL CREAR EL ARCHIVO
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
+-->
+
+<!--En app.module.ts hemos añadido un módulo para formularios que usaremos en los formularios que hay. En las etiquetas form añadimos #f=ngForm, luego usaremos ngFor para recorrer las listas y ngModel para actualizar ese selector que tenemos en consumiciones-->
+<div class= "class_comanda">
+  <h2 class ="titulo">McDonalds</h2>
+  <form class="classform1" #f="ngForm">
+    <br>
+    <label> Consumición:</label>
+    <select name="1stConsumicion" [(ngModel)]="codProducto"> <!--Este es un selector del producto, ngModel sirve para actualizar el selector de producto de forma dinámica-->
+      <option *ngFor='let tapa of menu; let i=index' value='{{i}}'>{{tapa[0]}} ({{tapa[1]}} €)  
+      </option> <!--Es una especie de bucle for, donde let tapa es como nuestra i y recorre la lista menu, la que hemos implementado en app.component.ts-->
+    </select>
+    <button type="button" (click)='addLinea()'>+</button>
+  </form >
+  <br>
+  <h3>Consumiciones:</h3>
+  <table width="450px">
+
+    <thead> 
+      <td> 
+        <u>Producto</u> 
+      </td>
+      <td align="rigth">
+        <u> Precio </u>
+      </td>
+      <td align=rigth>
+        <u> Kcal </u>
+      </td>
+    </thead>
+    <tr *ngFor='let linea of lineas; let i = index'>
+      <td>{{linea[0]}}</td>
+      <td align="rigth">{{linea[1]}} €</td>
+      <td align="rigth">{{linea[2]}} Kcal</td>
+      <td align="center">
+        <button type="button" (click)='delLinea(i)'>-</button><!--La función la implementamos en app.component.ts-->
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>Total</b>
+      </td>
+      <td align="rigth">
+        <b>{{Cuenta}}€</b>
+      </td>
+      <td>
+        <b>{{Kcal}} Kcal</b>
+      </td>
+    </tr>
+  </table>
+  <button class = "Aceptar" type="button" (click) = 'AceptarPedido'> Aceptar Pedido </button>
+</div>
+
+

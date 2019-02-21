@@ -1,0 +1,6 @@
+.classform1 label{margin-left:1%; width:110px; display:inline-block;} /*Hueco de consumición*/
+.classform1 input{margin-left:1%; width:200px} 
+.classform1 select{margin-left:1%; width:300px} /*Cuadrado*/
+.class_comanda {background: coral; display:block; width:500px; margin-left:25% } /*Fondo del div */
+.class_comanda .titulo{text-align:center}
+.class_comanda .Aceptar{margin-left: 35%; margin-top:5%;}
