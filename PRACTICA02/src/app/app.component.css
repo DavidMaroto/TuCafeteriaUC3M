@@ -1,0 +1,8 @@
+
+.main_body{background-color: blue; display:block; width: 700px;}
+.main_body .titulo{text-align: center;}
+.buscador .txtInline{text-align:right; width:350px; display:inline-block;}
+.buscador input{margin-left:10px; width:200px;}
+.estadoBuenoClass{background-color:green;}
+.estadoMaloClass{background-color:red;}
+.ofertas{width:700px; border:1px}
