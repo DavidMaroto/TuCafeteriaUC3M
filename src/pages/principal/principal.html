@@ -1,0 +1,49 @@
+<!--
+  Generated template for the PrincipalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>principal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-card>
+
+		<ion-card-header>
+			<ion-card-title>PRINCIPAL</ion-card-title>
+			<!--<ion-card-subtitle> Ahora sale Chicote </ion-card-subtitle>-->
+		</ion-card-header>
+
+		<ion-card-content>
+			
+			<!--<img src = "images.jpeg" alt = "meme de Chicote">-->
+			<ion-list>
+				<button ion-item>
+					<ion-icon name="cash" item-start></ion-icon><!-- EL name ofrece una imagen preestablecida-->
+     				Reserva
+				</button>
+				<button ion-item (click) = "irHome()">
+					<ion-icon name="book" item-start ></ion-icon><!-- EL name ofrece una imagen preestablecida-->
+     				carta
+				</button>
+			</ion-list>
+			<div id = "chat">
+				INFORMACIÓN DE TU PEDIDO
+			</div>
+			<div id = "chat">
+				PEDIDOS SIN RECOGER DE OTROS USUARIOS
+			</div>
+		</ion-card-content>
+
+
+
+
+
+	</ion-card>
+	
+	<button ion-button (click) = "irHome()">Aceptar</button>
+</ion-content>

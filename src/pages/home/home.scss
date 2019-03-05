@@ -1,0 +1,26 @@
+page-home {
+	
+	$bot:40%;
+
+	.boton{ /*Se aplica al botón del home*/
+		width: $bot;
+		height: $bot;
+		border-radius: 10px;
+
+		&:hover{
+			background-color:yellow;
+		}
+		&:active {
+			transform: translateY(4px);
+		}
+	}
+
+	.checkbox{
+		float:right;
+		width: 10%
+	}
+	
+	#like{
+		--background: red;
+	}
+}

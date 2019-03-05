@@ -1,0 +1,11 @@
+page-principal {
+$tam: 80%;
+$circulo: 5%;
+	#chat{
+		width: $tam;
+		background-color: red;
+		border:2px solid black;
+		border-radius: $circulo;
+		margin-left: 10%;
+	}
+}
