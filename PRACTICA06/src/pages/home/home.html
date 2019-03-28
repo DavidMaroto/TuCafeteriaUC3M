@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Ionic Menu</h3>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h1>Listado de clientes</h1>
+  <button small ion-button (click)="addContacto()">+</button>
+  <button small ion-button (click)="deleteContacto('Antonio')">-</button>
+  <p *ngFor = "let contacto of listaContactos">
+    {{contacto.nombre}}
+    {{contacto.movil}}
+  </p>
+</ion-content>
