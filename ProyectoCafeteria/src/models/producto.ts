@@ -10,4 +10,6 @@ export interface Producto {
 
     Imagen: String;
 
+    Pedido: Boolean;
+
 }

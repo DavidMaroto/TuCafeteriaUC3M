@@ -17,6 +17,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { ClientePage } from '../pages/cliente/cliente';
 import { LoginPage } from '../pages/login/login';
 import { PedidoPage } from '../pages/pedido/pedido';
+import { ListaHorasPage}  from '../pages/lista-horas/lista-horas';
 
 export const fireBaseConfig={
   apiKey: "AIzaSyCRiaoQAmewFZ1W_327xh6oJJN8kWxhurs",
@@ -34,6 +35,7 @@ export const fireBaseConfig={
     RegistroPage,
     ClientePage,
     PedidoPage,
+    ListaHorasPage,
 
   ],
   imports: [
@@ -51,6 +53,7 @@ export const fireBaseConfig={
     RegistroPage,
     ClientePage,
     PedidoPage,
+    ListaHorasPage,
 
   ],
   providers: [ // Para nuestros propios servicios

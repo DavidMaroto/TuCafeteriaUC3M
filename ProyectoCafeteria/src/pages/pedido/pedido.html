@@ -16,30 +16,42 @@
     <p>Pedido</p>
     </div>
   <div id = "Carta" >
-    <div id="oferta" *ngFor = "let plato of listaProductos">
-      <div id = "fotito">
-          <img src = "{{plato.Imagen}}" alt = "#">
-      </div>
+    <div id="oferta" *ngFor = "let plato of listaProductos" >
+      <div *ngIf ='plato.Disponible != 0'> <!--Imprimo solo los disponibles-->
+        <div id = "fotito">
+            <img src = "{{plato.Imagen}}" alt = "#">
+        </div >
         {{plato.Nombre}}
         <br>
         {{plato.Descripcion}}
+        <br>
+        <button ion-button small (click)="PedirProducto(plato)" > + </button>
+      </div>
     </div>
-      
-    <!--<p *ngFor = "let plato of listaProductos" >
-      {{plato.Nombre}}
-      <br>
-      {{plato.Descripcion}}
-    </p>-->
   </div>
   <div id = "Pedido_a_realizar">
    <div id="Resumen">
-    
+      <div id="oferta" *ngFor = "let plato of listaProductos" >
+        <div *ngIf ='plato.Pedido != false'> <!--Imprimo solo los que el cliente ha pedido-->
+          <div id = "fotito">
+              <img src = "{{plato.Imagen}}" alt = "#">
+          </div >
+          {{plato.Nombre}}
+          <br>
+          {{plato.Descripcion}}
+          <br>
+          <button ion-button small (click)="NoPedirProducto(plato)" > - </button>
+        </div>
+      </div>
    </div>
    <div>
-     <input name = "hora mínima" size = 10% type="datetime">
-     <input name = "hora máxima" size = 10% type="datetime">
-     <button ion-button small> Fijar Hora</button>
-     <button ion-button small> Cancelar</button>
+     <input name = "hora mínima" size = 3% [(ngModel)]="Hora_Minima" type="text">:
+     <input name = "hora mínima" size = 3% [(ngModel)]="Minuto_Minimo" type="text">
+     <br>
+     <input name = "hora máxima" size = 3% [(ngModel)]="Hora_Maxima" type="text">:
+     <input name = "hora máxima" size = 3% [(ngModel)]="Minuto_Maximo" type="text">
+     <button ion-button small (click)="FijarHora()"> Fijar Hora</button>
+     <button ion-button small  (click)="Cancelar()"> Cancelar</button>
    </div>
   </div>
 </ion-content>
