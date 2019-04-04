@@ -1,0 +1,45 @@
+<!--
+  Generated template for the PedidoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pedido</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div id = "cabecera">
+      <img src = "../../assets/imgs/edu.jpg" alt = "#">
+    <p>Pedido</p>
+    </div>
+  <div id = "Carta" >
+    <div id="oferta" *ngFor = "let plato of listaProductos">
+      <div id = "fotito">
+          <img src = "{{plato.Imagen}}" alt = "#">
+      </div>
+        {{plato.Nombre}}
+        <br>
+        {{plato.Descripcion}}
+    </div>
+      
+    <!--<p *ngFor = "let plato of listaProductos" >
+      {{plato.Nombre}}
+      <br>
+      {{plato.Descripcion}}
+    </p>-->
+  </div>
+  <div id = "Pedido_a_realizar">
+   <div id="Resumen">
+    
+   </div>
+   <div>
+     <input name = "hora mínima" size = 10% type="datetime">
+     <input name = "hora máxima" size = 10% type="datetime">
+     <button ion-button small> Fijar Hora</button>
+     <button ion-button small> Cancelar</button>
+   </div>
+  </div>
+</ion-content>

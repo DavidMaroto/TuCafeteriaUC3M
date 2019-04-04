@@ -1,0 +1,51 @@
+page-pedido {
+    #cabecera{
+		overflow: auto;
+		text-align:center;
+		width:95%;
+		border:solid;
+		margin-left:2.5%
+	}
+	#cabecera img{
+		width: 20%;
+		float:left;
+	}
+	#cabecera button{
+		float:rigth;
+		margin-left: 50%;
+	}
+    #Carta{
+        border: 2px solid black;
+        width: 45%;
+        height: 100%;
+        float:left;
+        margin:2%;
+        text-align: center;
+
+    }
+    #Pedido_a_realizar{
+        border: 2px solid black;
+        width: 45%;
+        height: 100%;
+        float:left;
+        margin:2%;
+        text-align: center;
+    }
+
+    #Resumen{
+        border: 2px solid black;
+        width:auto;
+        height: 50%;
+        margin:2%;
+        text-align: center;
+    }
+    #fotito{
+        width:30%;
+        float: left;
+    }
+    #oferta{
+        margin: 2%;
+        text-align: center;
+        float:left;
+    }
+}
