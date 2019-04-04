@@ -30,10 +30,11 @@ export class ClientePage {
   }
   AnadirProducto(){
     let InfoProducto : Producto = {
-      Nombre: "Tortilla",
+      Nombre: "Plato combinado 3",
       Descripcion: "Rico rico", 
       Disponible: 1,
       Imagen: '../../assets/imgs/edu.jpg' ,
+      Pedido: false,
     }
     this.FbDB.guardaProducto(InfoProducto).then(res=>{alert(InfoProducto.Nombre)});
   }
