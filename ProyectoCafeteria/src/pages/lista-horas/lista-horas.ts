@@ -15,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListaHorasPage {
 
+<<<<<<< HEAD
   public Hora_m: number;
   public Minuto_m: number ;
   public Hora_M:  number ;
@@ -59,4 +60,13 @@ export class ListaHorasPage {
     alert(hora);
     this.Seleccion = hora;
   }
+=======
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ListaHorasPage');
+  }
+
+>>>>>>> master
 }

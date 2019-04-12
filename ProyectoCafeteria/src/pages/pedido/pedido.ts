@@ -3,7 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import { Producto } from '../../models/producto';
 import { ClientePage } from '../cliente/cliente';
+<<<<<<< HEAD
 import { ListaHorasPage}  from '../lista-horas/lista-horas';
+=======
+>>>>>>> master
 
 /**
  * Generated class for the PedidoPage page.
@@ -52,6 +55,7 @@ export class PedidoPage {
     this.DBFB.guardaProducto(plato).then(res=>{alert(plato.Nombre)});
   }
   FijarHora(){
+<<<<<<< HEAD
     if(this.Hora_Minima == null || this.Minuto_Minimo == null || this.Hora_Maxima == null || this.Minuto_Maximo == null ){
       alert("Pon las horas bien")
     }
@@ -59,6 +63,9 @@ export class PedidoPage {
       this.navCtrl.push(ListaHorasPage, {Hora_m: this.Hora_Minima, Minuto_m: this.Minuto_Minimo, Hora_M: this.Hora_Maxima, Minuto_M: this.Minuto_Maximo});
     }
     
+=======
+
+>>>>>>> master
   }
   Cancelar(){
     this.navCtrl.push(ClientePage);
