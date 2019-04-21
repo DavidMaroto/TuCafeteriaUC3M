@@ -1,0 +1,61 @@
+page-camarero {
+    #body{
+        text-align:center;
+        width:auto;
+    }
+    #cabecera{
+        overflow: auto;
+        text-align:center;
+        width:95%;
+        border:solid;
+        margin-left:2.5%
+    }
+    #cabecera img{
+        width: 20%;
+        float:left;
+    }
+    #cabecera button{
+        float:rigth;
+        margin-left: 50%;
+    }
+    #menu_de_opciones{
+        border:solid;
+        width:95%;
+    }
+    #Pedido_actual{
+        margin-top: 5%;
+        overflow:auto;
+        text-align: center;
+        border:solid;
+        width:95%;
+        margin-left:2.5%
+    }
+    #Pedidos_otros{
+        margin-top: 5%;
+        overflow:auto;
+        text-align: center;
+        border:solid;
+        width:95%;
+        margin-left:2.5%
+    }
+    #body button{
+        margin-top:5%;
+    }
+    #Resumen{
+        border: 2px solid black;
+        width:auto;
+        height: 50%;
+        margin:2%;
+        text-align: center;
+        overflow-y:scroll;
+    }
+    #fotito{
+        width:30%;
+        float: left;
+    }
+    #oferta{
+        margin: 2%;
+        text-align: center;
+        float:left;
+    }  
+}

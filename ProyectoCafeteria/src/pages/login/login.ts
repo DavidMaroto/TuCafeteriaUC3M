@@ -4,6 +4,7 @@ import { Usuario} from '../../models/usuario';
 import { FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import { RegistroPage } from '../registro/registro'; // Este es mi modal
 import { ClientePage } from '../cliente/cliente';
+import { CamareroPage } from '../camarero/camarero';
 
 /**
  * Generated class for the LoginPage page.
@@ -47,6 +48,12 @@ export class LoginPage {
 			Correo: this.Email,
 			contrasena: this.contr,
 		}
-		this.dbFirebase.Iniciodesesion(this.user).then((user)=>{});
+		if(this.user.Correo == "camarero"){
+			this.navCtrl.push(CamareroPage);
+		}
+		else{
+			this.dbFirebase.Iniciodesesion(this.user).then((user)=>{});
+		}
+		
 	}
 }

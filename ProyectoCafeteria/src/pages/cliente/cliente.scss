@@ -26,7 +26,7 @@ page-cliente {
 		width:95%;
 	}
 	#Pedido_actual{
-		margin-top: 15%;
+		margin-top: 5%;
 		overflow:auto;
 		text-align: center;
 		border:solid;
@@ -44,5 +44,22 @@ page-cliente {
 	#body button{
 		margin-top:5%;
 	}
+	#Resumen{
+        border: 2px solid black;
+        width:auto;
+        height: 50%;
+        margin:2%;
+        text-align: center;
+        overflow-y:scroll;
+    }
+    #fotito{
+        width:30%;
+        float: left;
+    }
+    #oferta{
+        margin: 2%;
+        text-align: center;
+        float:left;
+    }
 }
 	

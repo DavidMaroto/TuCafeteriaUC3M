@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ConfirmacionPage} from '../confirmacion/confirmacion';
 
 /**
  * Generated class for the ListaHorasPage page.
@@ -15,12 +16,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListaHorasPage {
 
-<<<<<<< HEAD
   public Hora_m: number;
   public Minuto_m: number ;
   public Hora_M:  number ;
   public Minuto_M:  number ;
   public Seleccion : string;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.Hora_m = Number(navParams.get("Hora_m"));
     this.Minuto_m = Number(navParams.get("Minuto_m"));
@@ -32,14 +33,24 @@ export class ListaHorasPage {
     for(var i = 0; i < 4; i++ ){
       let str = '';
       if(i == 0){
-        str += this.Hora_m + ':' + minuto;
+        if(minuto < 10){
+          str += this.Hora_m + ':0' + minuto;
+        }
+        else{
+          str += this.Hora_m + ':' + minuto;
+        }
       }
       else{
         minuto +=10;
         if(minuto > 59){
           minuto -= 60;
           this.Hora_m += 1;
-          str += this.Hora_m + ':' + minuto;
+          if(minuto < 10){
+            str += this.Hora_m + ':0' + minuto;
+          }
+          else{
+            str += this.Hora_m + ':' + minuto;
+          }
         }
         else{
           str += this.Hora_m + ':' + minuto;
@@ -57,16 +68,15 @@ export class ListaHorasPage {
     console.log('ionViewDidLoad ListaHorasPage');
   }
   CogerHora(hora: string){
-    alert(hora);
+    //alert(hora);
     this.Seleccion = hora;
   }
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  Confirmar(){
+    if(this.Seleccion != null){
+      this.navCtrl.push(ConfirmacionPage, {Hora_Final: this.Seleccion});
+    }
+    else{
+      alert("Selecciona una hora para el pedido");
+    }
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaHorasPage');
-  }
-
->>>>>>> master
 }

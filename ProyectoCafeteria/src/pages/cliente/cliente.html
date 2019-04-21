@@ -49,17 +49,28 @@
 						<ion-icon name = "cog"> Cafeterías</ion-icon>
 					</button>
 				</ion-item>
-				<ion-item>
-					<button ion-button small (click)="AnadirProducto()">
-						<ion-icon name = "cog"> Añadir a la carta</ion-icon>
-					</button>
-				</ion-item>
 			</ion-list>
 		</div>
 		<!--Sección de pedidos actuales y extraviados-->
+		<h3>Tu pedido actual</h3>
 		<div id = "Pedido_actual">
-			<p>Información del pedido actual</p>
+			<div id="Resumen">
+				<div id="oferta" *ngFor = "let plato of listaProductos" >
+				  <div *ngIf ='plato.Pedido != false'> <!--Imprimo solo los que el cliente ha pedido-->
+					<div id = "fotito">
+						<img src = "{{plato.Imagen}}" alt = "#">
+					</div >
+					{{plato.Nombre}}
+					<br>
+					{{plato.Descripcion}}
+					<br>
+					{{plato.Hora}}
+					<br>
+				  </div>
+				</div>
+			 </div>
 		</div>
+		<h1>Pedidos de otros</h1>
 		<div id = "Pedidos_otros">
 			<p>Información de pedidos preparados para coger y pagar</p>
 		</div>

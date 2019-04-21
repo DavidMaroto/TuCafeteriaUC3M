@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ConfirmacionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>confirmacion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div id="Resumen">
+    <div id="oferta" *ngFor = "let plato of listaProductos" >
+      <div *ngIf ='plato.Pedido != false'> <!--Imprimo solo los que el cliente ha pedido-->
+        <div id = "fotito">
+            <img src = "{{plato.Imagen}}" alt = "#">
+        </div >
+        {{plato.Nombre}}
+        <br>
+        {{plato.Descripcion}}
+        <br>
+      </div>
+    </div>
+ </div>
+<input type = "text" size = 10% value="{{Seleccion}}">
+<br>
+<button ion-button (click)="Confirmar()">Confirmar Pedido</button>
+<br>
+<button ion-button (click)="Cancelar()">Cancelar</button>
+</ion-content>

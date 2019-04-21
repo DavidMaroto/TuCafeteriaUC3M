@@ -21,22 +21,16 @@ import { Usuario } from '../../models/usuario';
 export class ClientePage {
 
    
-  constructor(public navCtrl: NavController, public navParams: NavParams, public FbDB: FirebaseDbProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public DBFB: FirebaseDbProvider) {
 
   }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad ClientePage');
   }
-  AnadirProducto(){
-    let InfoProducto : Producto = {
-      Nombre: "Plato combinado 3",
-      Descripcion: "Rico rico", 
-      Disponible: 1,
-      Imagen: '../../assets/imgs/edu.jpg' ,
-      Pedido: false,
-    }
-    this.FbDB.guardaProducto(InfoProducto).then(res=>{alert(InfoProducto.Nombre)});
+  listaProductos : any;
+  ionViewDidEnter(){ // Si no comento esto da fallo de Object(...) is not a function
+    this.DBFB.getProducto().subscribe(listaProductos=>{this.listaProductos=listaProductos;})
   }
   // Menú de opciones
   Reserva(){
@@ -44,6 +38,6 @@ export class ClientePage {
   }
   // Cerrar sesión
   logout(){
-    this.FbDB.Cerrarsesion();
+    this.DBFB.Cerrarsesion();
   }
 }

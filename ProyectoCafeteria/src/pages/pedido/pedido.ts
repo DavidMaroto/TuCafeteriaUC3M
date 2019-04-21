@@ -3,10 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import { Producto } from '../../models/producto';
 import { ClientePage } from '../cliente/cliente';
-<<<<<<< HEAD
 import { ListaHorasPage}  from '../lista-horas/lista-horas';
-=======
->>>>>>> master
 
 /**
  * Generated class for the PedidoPage page.
@@ -23,51 +20,48 @@ import { ListaHorasPage}  from '../lista-horas/lista-horas';
 export class PedidoPage {
   
 // Variables de 
-  Hora_Minima : Number;
-  Hora_Maxima : Number;
-  Minuto_Minimo : Number;
-  Minuto_Maximo : Number;
-
+  Hora_Minima : number;
+  Hora_Maxima : number;
+  Minuto_Minimo : number;
+  Minuto_Maximo : number;
   constructor(public navCtrl: NavController, public DBFB: FirebaseDbProvider, public navParams: NavParams) {
   }
-  nombre: String;
-  descripcion: String;
-  disponibilidad: number;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PedidoPage');
   }
-  listaProductos:any;
+  listaProductos: any;
   
   QuitarProducto(nombre){
     this.DBFB.borrarProducto(nombre);
     alert(nombre + "borrado");
   }
-  ionViewDidEnter(){ // Si no comento esto da fallo de Object(...) is not a function
+  ionViewDidEnter(){ 
     this.DBFB.getProducto().subscribe(listaProductos=>{this.listaProductos=listaProductos;})
   }
   PedirProducto(plato : Producto){
     plato.Pedido = true;
-    this.DBFB.guardaProducto(plato).then(res=>{alert(plato.Nombre)});
+    this.DBFB.guardaProducto(plato);//.then(res=>{alert(plato.Nombre)});
   }
   NoPedirProducto(plato : Producto){
     plato.Pedido = false;
-    this.DBFB.guardaProducto(plato).then(res=>{alert(plato.Nombre)});
+    this.DBFB.guardaProducto(plato);//.then(res=>{alert(plato.Nombre)});
   }
   FijarHora(){
-<<<<<<< HEAD
-    if(this.Hora_Minima == null || this.Minuto_Minimo == null || this.Hora_Maxima == null || this.Minuto_Maximo == null ){
+    if(this.Hora_Minima == null || this.Minuto_Minimo == null || this.Hora_Maxima == null || this.Minuto_Maximo == null || this.Hora_Maxima > 16 || this.Hora_Minima <= 8 || this.Minuto_Maximo > 59 || this.Minuto_Minimo < 0 ){
       alert("Pon las horas bien")
     }
     else{
       this.navCtrl.push(ListaHorasPage, {Hora_m: this.Hora_Minima, Minuto_m: this.Minuto_Minimo, Hora_M: this.Hora_Maxima, Minuto_M: this.Minuto_Maximo});
     }
     
-=======
-
->>>>>>> master
   }
   Cancelar(){
+	for (let plato of this.listaProductos){
+		alert(plato.Nombre);
+		plato.Pedido=false;
+		this.DBFB.guardaProducto(plato);
+    }
     this.navCtrl.push(ClientePage);
   }
 }

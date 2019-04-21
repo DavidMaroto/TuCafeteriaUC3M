@@ -1,0 +1,76 @@
+<!--
+  Generated template for the CamareroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>PÁGINA PRINCIPAL</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <!--Cabecera-->
+    <h1>{{Nombre}}</h1>
+    <div id="body">
+      <div id = "cabecera">
+        <img src = "../../assets/imgs/perfil.png" alt = "#">
+        
+        <button ion-button  >
+          <ion-icon name = "cog"> Ajustes</ion-icon>
+        </button>
+      </div>
+      <!--Menú de opciones-->
+      <div id = "Menu">
+        <ion-list>
+          <ion-item>
+            <button ion-button small >
+              <ion-icon name = "cog"> Guía</ion-icon>
+            </button>
+          </ion-item>
+          <ion-item >
+            <button ion-button small >
+              <ion-icon name = "cog"> Carta</ion-icon>
+            </button>
+          </ion-item>
+          <ion-item>
+            <button ion-button small >
+              <ion-icon name = "cog"> Información</ion-icon>
+            </button>
+          </ion-item>
+          <ion-item>
+            <button ion-button small (click)="AnadirProducto()">
+              <ion-icon name = "cog"> Añadir a la carta</ion-icon>
+            </button>
+          </ion-item>
+        </ion-list>
+      </div>
+      <!--Sección de pedidos actuales y extraviados-->
+      <h3>Pedidos pendientes</h3>
+      <div id = "Pedido_actual">
+        <div id="Resumen">
+          <div id="oferta" *ngFor = "let plato of listaProductos" >
+            <div *ngIf ='plato.Pedido != false'> <!--Imprimo solo los que el cliente ha pedido-->
+            <div id = "fotito">
+              <img src = "{{plato.Imagen}}" alt = "#">
+            </div >
+              {{plato.Nombre}}
+              <br>
+              {{plato.Descripcion}}
+              <br>
+			  {{plato.Hora}}
+              <br>
+            </div>
+          </div>
+          <button ion-button (click)="aceptar();">Aceptar</button>
+         </div>
+      </div>
+      <h1>Pedidos entregados</h1>
+      <div id = "Pedidos_otros">
+        <p>Información de pedidos preparados para coger y pagar</p>
+      </div>
+      
+      <button ion-button (click)="logout()">Cerrar Sesión</button>	
+    </div>
+  </ion-content>

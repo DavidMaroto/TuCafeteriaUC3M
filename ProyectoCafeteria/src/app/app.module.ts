@@ -18,7 +18,13 @@ import { ClientePage } from '../pages/cliente/cliente';
 import { LoginPage } from '../pages/login/login';
 import { PedidoPage } from '../pages/pedido/pedido';
 import { ListaHorasPage}  from '../pages/lista-horas/lista-horas';
+import { ConfirmacionPage} from '../pages/confirmacion/confirmacion';
+import { CamareroPage} from '../pages/camarero/camarero';
 
+//Plugins
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
+//Firebase
 export const fireBaseConfig={
   apiKey: "AIzaSyCRiaoQAmewFZ1W_327xh6oJJN8kWxhurs",
   authDomain: "proyecto-final-dsi.firebaseapp.com",
@@ -36,6 +42,9 @@ export const fireBaseConfig={
     ClientePage,
     PedidoPage,
     ListaHorasPage,
+    ConfirmacionPage,
+    CamareroPage,
+    
 
   ],
   imports: [
@@ -54,13 +63,18 @@ export const fireBaseConfig={
     ClientePage,
     PedidoPage,
     ListaHorasPage,
+    ConfirmacionPage,
+    CamareroPage,
+
 
   ],
   providers: [ // Para nuestros propios servicios
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseDbProvider,
+    
   ]
 })
 export class AppModule {}

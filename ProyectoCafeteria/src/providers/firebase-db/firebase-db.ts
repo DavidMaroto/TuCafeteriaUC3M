@@ -4,6 +4,9 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Usuario} from '../../models/usuario';
 import { Producto } from '../../models/producto';
+import { Action } from 'rxjs/scheduler/Action';
+import { ILocalNotificationActionType } from '@ionic-native/local-notifications/ngx';
+import { ActionSheetController } from 'ionic-angular';
 
 
 
@@ -22,6 +25,20 @@ export class FirebaseDbProvider {
 	constructor(public afDB:AngularFireDatabase, private AuthDB: AngularFireAuth) {
 		console.log('Hello FirebaseDbProvider Provider');
 	}
+
+
+	public actionCodeSettings = {
+		url : 'https://www.google.com/search?q=im%C3%A1genes+de+diosito&rlz=1C1AVFC_enES836ES836&tbm=isch&source=iu&ictx=1&fir=HPvgQWJ35BJ73M%253A%252CKltaYBJtm-74uM%252C_&vet=1&usg=AI4_-kQ8crUNAtPjCpkpUpYllrRfYKVEjQ&sa=X&ved=2ahUKEwidhcW0lLHhAhXa6eAKHWFsA5IQ9QEwAnoECAYQCA#imgrc=HPvgQWJ35BJ73M:?mode=<action>&oobCode=<code>',
+		android: {
+			packageName: 'com.example.android',
+			installApp: true,
+			minimumVersion: '12'
+		},
+		handleCodeInApp: true,
+		// When multiple custom dynamic link domains are defined, specify which
+		// one to use.
+		dynamicLinkDomain: "example.page.link"
+	};
 	private Carta = this.afDB.list<Producto>('productos');
 	
 	usuarioglobal: Usuario;
@@ -66,5 +83,8 @@ export class FirebaseDbProvider {
 	// Enviar correo de verificación
 	EnviarCorreo(user : Usuario){
 		this.AuthDB.auth.sendPasswordResetEmail(user.Correo);
+	}
+	EnviarNotificacion(user : Usuario){
+		this.AuthDB.auth.sendSignInLinkToEmail(user.Correo, this.actionCodeSettings);
 	}
 }
