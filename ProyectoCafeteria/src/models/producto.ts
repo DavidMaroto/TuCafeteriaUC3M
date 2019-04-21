@@ -13,5 +13,7 @@ export interface Producto {
     Pedido: Boolean;
 	
 	Hora: String;
+	
+	Precio: Number;
 
 }

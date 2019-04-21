@@ -48,13 +48,18 @@ export class PedidoPage {
     this.DBFB.guardaProducto(plato);//.then(res=>{alert(plato.Nombre)});
   }
   FijarHora(){
+    var today = new Date();
+	 var datetime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), this.Hora_Minima);
+	 today.setMinutes( today.getMinutes() + 20);
     if(this.Hora_Minima == null || this.Minuto_Minimo == null || this.Hora_Maxima == null || this.Minuto_Maximo == null || this.Hora_Maxima > 16 || this.Hora_Minima <= 8 || this.Minuto_Maximo > 59 || this.Minuto_Minimo < 0 ){
       alert("Pon las horas bien")
     }
+	else if ( datetime < today){
+	  alert("Tienes que dejarnos al menos 20 minutos de margen")
+	}
     else{
       this.navCtrl.push(ListaHorasPage, {Hora_m: this.Hora_Minima, Minuto_m: this.Minuto_Minimo, Hora_M: this.Hora_Maxima, Minuto_M: this.Minuto_Maximo});
     }
-    
   }
   Cancelar(){
 	for (let plato of this.listaProductos){

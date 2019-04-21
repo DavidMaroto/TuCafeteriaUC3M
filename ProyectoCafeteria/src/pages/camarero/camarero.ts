@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseDbProvider} from '../../providers/firebase-db/firebase-db';
 import { PedidoPage } from '../pedido/pedido';
 import { Producto} from '../../models/producto';
+import { AddProductoPage } from '../addproducto/addproducto';
 //import {} from '../../assets/imgs/edu.jpg';
 import { LoginPage } from '../login/login';
 import { LocalNotifications} from '@ionic-native/local-notifications/ngx';
@@ -29,14 +30,7 @@ export class CamareroPage {
     console.log('ionViewDidLoad CamareroPage');
   }
   AnadirProducto(){
-    let InfoProducto : Producto = {
-      Nombre: "Plato combinado 4",
-      Descripcion: "Rico rico", 
-      Disponible: 1,
-      Imagen: '../../assets/imgs/edu.jpg' ,
-      Pedido: false,
-    }
-    this.DBFB.guardaProducto(InfoProducto).then(res=>{alert(InfoProducto.Nombre)});
+    this.navCtrl.push(AddProductoPage);
   }
   listaProductos : any;
   ionViewDidEnter(){ // Si no comento esto da fallo de Object(...) is not a function
